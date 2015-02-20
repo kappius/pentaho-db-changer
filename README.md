@@ -1,32 +1,33 @@
 # pentaho-db-changer
-Change dynamically Pentaho reports database connection
+Change dynamically Pentaho PDI database connection
 
 How to use
 ==========
 
-Antes de executar o programa, é necessário configurar o arquivo de configuração(config.ini).
-Para configurar o arquivo de configuração é bem simples, como mostra o exemplo abaixo.
+Before execute the program you need to configure .ini file (config.ini) with your database settings.
 
-Primeiro cria a seção conect com o elemento conect, essa seção serve para selecionar o banco que vai querer.
+You can follow this example:
 
-[conect]
-conect = conect_local
+First of all use a section 'connect' to select which database you will use.
 
-Depois cria a seção default com o elemento path, esse elemento serve para selecionar o path da pasta aonde estão os arquivos do pdi.
+[connect]
+connect = connect_local
+
+Then, create a default section with the absolute path for pdi files.
 
 [default]
 path = /home/pdi
 
-Depois cria as seções dos bancos que desejar. Em cada seção de 
+At last, create a section for each connection that you want to use and change easyly.
 
 [conect_server]
 server = xxxxxx
 username = xxxxxx
-password = Encrypted 3b479jfbf7hwndhnn37dr345r54t
+password = my_pass
 
 [conect_local]
 server = localhost
 username = root
-password = Encrypted 3b479jfbf7hwndhnn37dr345r54t
+password = other_pass
 
-Para executar é muito simples, basta executar o init.
+Just execute __init__.py file
