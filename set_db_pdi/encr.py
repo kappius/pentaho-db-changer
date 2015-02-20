@@ -14,6 +14,7 @@ class Encr(object):
         return 'Encrypted %x' % encrypt
 
     def decrypt(self, password):
+        # TODO not working with more and less than 8
         secret = password.split()[1]
         hexa = int(secret, 16)
         encoded = hexa ^ self.num

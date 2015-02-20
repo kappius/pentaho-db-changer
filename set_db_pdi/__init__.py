@@ -25,22 +25,19 @@ class SetDB(object):
                         try:
                             if son.tag == 'password':
                                 son.text = Encr().encrypt(self.cfg.get(
-                                    self.cfg.get('conect', 'conect'), son.tag))
-                                print Encr().decrypt(Encr().encrypt(self.cfg.get(
-                                    self.cfg.get('conect', 'conect'), son.tag)))
+                                    self.cfg.get('connect', 'connect'),
+                                    son.tag))
+
                             else:
-                                son.text = self.cfg.get(self.cfg.get('conect',
-                                                                     'conect'),
-                                                        son.tag)
+                                son.text = self.cfg.get(
+                                    self.cfg.get('connect',
+                                                 'connect'),
+                                    son.tag)
                         except ConfigParser.NoOptionError:
                             pass
 
             tree.write(file, encoding='utf-8', xml_declaration=True)
 
 
-def main():
-    SetDB().write_file_pdi()
-
-
 if __name__ == '__main__':
-    main()
+    SetDB().write_file_pdi()
