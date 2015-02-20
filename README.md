@@ -1,2 +1,2 @@
 # pentaho-db-changer
-Change dynamically Pentaho reports database connection
+Change dynamically Pentaho PDI database connection
