@@ -1,20 +1,20 @@
 [conect]
-conect = conect_amazon
+conect = conect_local
 
 [default]
 path = /home/thiago/workspace/financeiro/background/import/pdi
 
-[conect_amazon]
-server = medk.coc6zw3hzk6k.sa-east-1.rds.amazonaws.com
-username = ebroot
-password = Encrypted 2be98afc86aa7f2e4bf11af788fa2a0cf
+[conect_server]
+server = xxxxxx
+username = xxxxxx
+password = Encrypted 3b479jfbf7hwndhnn37dr345r54t
 
 [conect_local]
 server = localhost
 username = root
-password = Encrypted 2be98afc86aa7f2e4cb79ff228dc6fa8c
+password = 123456
 
 [conect_dev]
-server = devmedk.coc6zw3hzk6k.sa-east-1.rds.amazonaws.com
-username = ebroot
-password = Encrypted 2be98afc86aa7f2e4bf11af788fa2a0cf
+server = xxxxxx
+username = xxxxxx
+password = Encrypted 3b479jfbf7hwndhnn37dr345r54t

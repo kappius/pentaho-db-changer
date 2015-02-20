@@ -4,24 +4,43 @@
 import xml.etree.ElementTree as ET
 import ConfigParser
 import glob
-
-cfg = ConfigParser.ConfigParser(allow_no_value=True)
-cfg.read('config.ini')
-
-arquivos = glob.glob(cfg.get('default', 'path') + "/*.k*")
+from encr import Encr
 
 
-for arquivo in arquivos:
-    tree = ET.parse(arquivo)
-    root = tree.getroot()
+class SetDB(object):
+    def __init__(self):
+        self.cfg = ConfigParser.ConfigParser(allow_no_value=True)
+        self.cfg.read('config.ini')
 
-    for pai in root:
-        if pai.tag == 'connection':
-            for filho in pai:
-                try:
-                    filho.text = cfg.get(cfg.get('conect', 'conect'),
-                                         filho.tag)
-                except ConfigParser.NoOptionError:
-                    pass
-    tree.write(arquivo, encoding='utf-8', xml_declaration=True)
+        self.files = glob.glob(self.cfg.get('default', 'path') + "/*.k*")
 
+    def write_file_pdi(self):
+        for file in self.files:
+            tree = ET.parse(file)
+            root = tree.getroot()
+
+            for father in root:
+                if father.tag == 'connection':
+                    for son in father:
+                        try:
+                            if son.tag == 'password':
+                                son.text = Encr().encrypt(self.cfg.get(
+                                    self.cfg.get('conect', 'conect'), son.tag))
+                                print Encr().decrypt(Encr().encrypt(self.cfg.get(
+                                    self.cfg.get('conect', 'conect'), son.tag)))
+                            else:
+                                son.text = self.cfg.get(self.cfg.get('conect',
+                                                                     'conect'),
+                                                        son.tag)
+                        except ConfigParser.NoOptionError:
+                            pass
+
+            tree.write(file, encoding='utf-8', xml_declaration=True)
+
+
+def main():
+    SetDB().write_file_pdi()
+
+
+if __name__ == '__main__':
+    main()
