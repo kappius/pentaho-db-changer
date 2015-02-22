@@ -1,7 +1,7 @@
 # pentaho-db-changer
 Change dynamically Pentaho PDI database connection
 
-How to use
+How to Use
 ==========
 
 Before execute the program you need to configure .ini file (config.ini) with your database settings.
@@ -30,4 +30,46 @@ server = localhost
 username = root
 password = other_pass
 
-Just execute __init__.py file
+Just execute \__init__.py file as follow:
+    
+    cd set_db_pdi
+    python __init__.py
+
+Using as a Module
+=================
+
+Download this project with:
+
+    git clone https://github.com/kappius/pentaho-db-changer.git
+
+All modules are in **set_db_pdi** folder and you can copy this folder and put inside your modules folder.
+
+Then, import using:
+
+    from set_db_pdi import SetDB
+
+You can set a custom configuration file name using:
+    SetDB('settings.ini').write_file_pdi()
+    
+
+If your password is encrypted (using right pdi format), then call:
+
+    SetDB().write_file_pdi(encrypt=False)
+
+If not, then:
+    
+    SetDB().write_file_pdi() # this is default call when you execute __init__.py file
+
+You know if it is encrypted if password in config.ini is in format:
+
+    password = Encrypted 1ad32da2de2da7886
+
+Using in reports
+================
+
+It works with Pentaho Report Designer's files (.prpt) too, but only using 
+**encrypt=False** since this issue was solved: http://jira.pentaho.com/browse/PRD-3608
+
+Just unzip .prpt files and get file datasources\sql-ds.xml
+
+This file (sql-ds.xml) is like .kjb and .ktr files and use same connection names.
