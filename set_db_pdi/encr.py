@@ -7,7 +7,7 @@ import struct
 class Encr(object):
     """ Cryptography class used to obfuscate passwords in Pentaho PDI.
     New Report Designer cryptography is not working, but PDI still with this
-    approach: https://github.com/pentaho/pentaho-kettle/blob/master/core/src/org/pentaho/di/core/encryption/Encr.java
+    approach: http://goo.gl/ukhXY2
 
     Report designer fixed here: http://jira.pentaho.com/browse/PRD-3608
     """
@@ -15,7 +15,7 @@ class Encr(object):
 
     def encrypt(self, password):
         """ Encrypt passwords with PDI obfuscation following this file:
-        https://github.com/pentaho/pentaho-kettle/blob/master/core/src/org/pentaho/di/core/encryption/KettleTwoWayPasswordEncoder.java
+        http://goo.gl/zXWHjg
         :param password: Password to be obfuscated
         :return: Encrypted format for Pentaho
         """
