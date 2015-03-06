@@ -18,7 +18,7 @@ Then, create a default section with the absolute path for pdi files.
 [default]
 path = /home/pdi
 
-At last, create a section for each connection that you want to use and change easyly.
+At last, create a section for each connection that you want to use and change easily.
 
 [conect_server]
 server = xxxxxx
