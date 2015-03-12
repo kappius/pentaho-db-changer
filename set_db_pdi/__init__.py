@@ -47,9 +47,9 @@ class SetDB(object):
 
                             except ConfigParser.NoOptionError:
                                 raise warnings.warn("You didn't set %s -> %s." %
-                                                    self.cfg.get('connect',
+                                                    (self.cfg.get('connect',
                                                                  'connect'),
-                                                    son.tag)
+                                                    son.tag))
                             try:
                                 if encrypt and son.tag == 'password':
                                     son.text = Encr().encrypt(son.text)
