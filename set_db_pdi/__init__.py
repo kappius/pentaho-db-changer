@@ -10,6 +10,9 @@ from encr import Encr
 
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 
+VERSION = (0, 0, 1)
+__version__ = ".".join(map(str, VERSION))
+
 
 class SetDB(object):
     """ Class to set new database to ktr, kjb and xml files from Pentaho PDI
@@ -65,4 +68,8 @@ class SetDB(object):
 
 if __name__ == '__main__':
     """ Execute main function when you're not using as a module. """
-    SetDB().write_file_pdi()
+    try:
+        SetDB().write_file_pdi()
+        print 'Done'
+    except:
+        raise

@@ -1,5 +1,7 @@
-# pentaho-db-changer
-Change dynamically Pentaho PDI database connection
+Pentaho DB Changer
+******************
+
+Change dynamically Pentaho database connections from kjb, ktr and xml files
 
 How to Use
 ==========
@@ -40,27 +42,40 @@ Using as a Module
 
 Download this project with:
 
+::
+
     git clone https://github.com/kappius/pentaho-db-changer.git
 
 All modules are in **set_db_pdi** folder and you can copy this folder and put inside your modules folder.
 
 Then, import using:
 
+::
+
     from set_db_pdi import SetDB
 
 You can set a custom configuration file name using:
+
+::
+
     SetDB('settings.ini').write_file_pdi()
     
 
 If your password is encrypted (using right pdi format), then call:
 
+::
+
     SetDB().write_file_pdi(encrypt=False)
 
 If not, then:
-    
+
+::
+
     SetDB().write_file_pdi() # this is default call when you execute __init__.py file
 
 You know if it is encrypted if password in config.ini is in format:
+
+::
 
     password = Encrypted 1ad32da2de2da7886
 
