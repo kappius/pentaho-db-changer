@@ -3,6 +3,14 @@ Pentaho DB Changer
 
 Change dynamically Pentaho database connections from kjb, ktr and xml files
 
+Installation
+============
+
+::
+
+    pip install pentaho-db-changer
+
+
 How to Use
 ==========
 
