@@ -29,7 +29,7 @@ setup(
                  'Operating System :: OS Independent',
                  'Topic :: Database',
                  'Topic :: Office/Business',
-                 'Topic :: Software Development :: Libraries :: ',
-                 'Topic :: Utilities',
-                 'Python Modules'],
+                 'Topic :: Software Development :: Libraries :: '
+                 'Python Modules'
+                 'Topic :: Utilities'],
 )
