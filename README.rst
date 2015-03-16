@@ -20,28 +20,36 @@ You can follow this example:
 
 First of all use a section 'connect' to select which database you will use.
 
-[connect]
-connect = connect_local
+::
+
+    [connect]
+    connect = connect_local
 
 Then, create a default section with the absolute path for pdi files.
 
-[default]
-path = /home/pdi
+::
+
+    [default]
+    path = /home/pdi
 
 At last, create a section for each connection that you want to use and change easily.
 
-[conect_server]
-server = xxxxxx
-username = xxxxxx
-password = my_pass
+::
 
-[conect_local]
-server = localhost
-username = root
-password = other_pass
+    [conect_server]
+    server = xxxxxx
+    username = xxxxxx
+    password = my_pass
+
+    [conect_local]
+    server = localhost
+    username = root
+    password = other_pass
 
 Just execute \__init__.py file as follow:
-    
+
+::
+
     cd set_db_pdi
     python __init__.py
 

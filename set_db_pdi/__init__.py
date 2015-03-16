@@ -10,7 +10,7 @@ from encr import Encr
 
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 
-VERSION = (0, 0, 1)
+VERSION = (0, 0, 2)
 __version__ = ".".join(map(str, VERSION))
 
 
