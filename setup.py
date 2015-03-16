@@ -30,6 +30,6 @@ setup(
                  'Topic :: Database',
                  'Topic :: Office/Business',
                  'Topic :: Software Development :: Libraries :: '
-                 'Python Modules'
+                 'Python Modules',
                  'Topic :: Utilities'],
 )
