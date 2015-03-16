@@ -3,11 +3,11 @@
 import os
 from setuptools import setup
 
-VERSION = __import__('pentaho-db-changer').__version__
+VERSION = __import__('set_db_pdi').__version__
 
 setup(
     name='pentaho-db-changer',
-    packages=['pentaho-db-changer'],
+    packages=['set_db_pdi'],
     version=VERSION,
     description='Change dynamically Pentaho database connections from '
                 'kjb, ktr and xml files',
