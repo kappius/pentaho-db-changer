@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import struct
+import binascii
 
 
 class Encr(object):
@@ -19,9 +19,8 @@ class Encr(object):
         :param password: Password to be obfuscated
         :return: Encrypted format for Pentaho
         """
-        secret = struct.unpack('>%sB' % len(password), bytearray(password))
-        s = sum(secret[i] << (i * 8) for i in range(len(password)))
-        encrypt = s ^ self.num
+        secret = int(binascii.hexlify(password), 16)
+        encrypt = secret ^ self.num
         return 'Encrypted %x' % encrypt
 
     def decrypt(self, password):
@@ -29,8 +28,7 @@ class Encr(object):
         :param password: Obfuscated password
         :return: decrypted password human readable
         """
-        # TODO not working with more and less than 8 characters passwords
-        secret = password.split()[1]
-        hexa = int(secret, 16)
-        encoded = hexa ^ self.num
-        return struct.pack("Q", encoded)
+        hexa = password.split()[1]
+        secret = int(hexa, 16)
+        encoded = secret ^ self.num
+        return binascii.unhexlify("%x" % encoded)
