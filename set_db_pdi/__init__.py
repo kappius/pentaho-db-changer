@@ -35,9 +35,9 @@ class SetDB(object):
         without apply pentaho obfuscation (it should be already obfuscated in
         configuration file as explained in README.
         """
-        for f in self.files:
-            if f.endswith(".xml") or f.endswith(".kjb") or f.endswith(".ktr"):
-                tree = ET.parse(f)
+        for file in self.files:
+            if file.endswith(".xml") or file.endswith(".kjb") or file.endswith(".ktr"):
+                tree = ET.parse(file)
                 root = tree.getroot()
 
                 for father in root:
@@ -63,7 +63,7 @@ class SetDB(object):
                 tree.write(file, encoding='utf-8', xml_declaration=True)
             else:
                 warnings.warn("We just support xml, kjb and ktr files. "
-                              "%s not supported." % f)
+                              "%s not supported." % file)
 
 
 if __name__ == '__main__':
